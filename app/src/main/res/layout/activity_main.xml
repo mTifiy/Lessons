@@ -309,6 +309,28 @@
                 android:background="@drawable/bg_mai_bottom_sheets_sweeper"
                 android:orientation="horizontal" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/main_hourly_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:layout_marginBottom="8dp"
+                tools:layout_height="80dp"/>
+
+            <LinearLayout
+                style="@style/DividerStile"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/main_daily_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:layout_marginBottom="8dp"
+                tools:layout_height="16dp"/>
         </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
