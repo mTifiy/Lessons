@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/drawable/bg_mai_bottom_sheets_sweeper.xml" value="0.1515" />
+        <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/drawable/bg_main_bottom_sheets.xml" value="0.1515" />
         <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/drawable/ic_menu_24.xml" value="0.1515" />
         <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/drawable/ic_muun.xml" value="0.1515" />
         <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/drawable/ic_rain.xml" value="0.1515" />
@@ -10,7 +12,7 @@
         <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/drawable/ic_sun.xml" value="0.1515" />
         <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/drawable/ic_thermostat.xml" value="0.1515" />
         <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/drawable/ic_wind.xml" value="0.1515" />
-        <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/layout/activity_main.xml" value="0.29779837775202783" />
+        <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1515" />
       </map>
     </option>

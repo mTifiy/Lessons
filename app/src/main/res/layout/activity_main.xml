@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +8,7 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -97,7 +99,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="2dp"
+                style="@style/DividerStile"
                 android:layout_height="match_parent"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
@@ -130,8 +132,10 @@
             style="@style/MainTextViewStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autoSizeMinTextSize="88sp"
+            android:autoSizeTextType="uniform"
             android:includeFontPadding="false"
-            android:textSize="80sp"
+            android:textSize="98sp"
             app:layout_constraintBottom_toTopOf="@+id/Layout_min_max"
             app:layout_constraintEnd_toStartOf="@+id/main_image_of_weather"
             app:layout_constraintStart_toStartOf="parent"
@@ -142,17 +146,21 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:layout_constraintBottom_toTopOf="@+id/main_temp"
-            app:layout_constraintStart_toStartOf="@+id/main_temp"
+            app:layout_constraintStart_toEndOf="@+id/main_menu_icon"
             tools:src="@drawable/ic_sun" />
 
         <com.google.android.material.textview.MaterialTextView
-            style="@style/MainTextViewStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:fontFamily="sans-serif"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toStartOf="@+id/main_image_of_weather"
             app:layout_constraintStart_toEndOf="@+id/imageView"
             app:layout_constraintTop_toTopOf="@+id/imageView"
-            tools:text="clear cky" />
+            tools:text="clear sky" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/Main_guideLine_horizontal_2"
@@ -186,8 +194,8 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/materialTextView"
             style="@style/MainTextViewStyle"
-            android:textSize="14sp"
             android:layout_marginStart="8dp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/image_thermostat"
             app:layout_constraintStart_toStartOf="@+id/Main_guideLine_vertical"
             app:layout_constraintTop_toTopOf="@+id/Main_guideLine_horizontal_2"
@@ -205,8 +213,8 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/materialTextView2"
             style="@style/MainTextViewStyle"
-            android:textSize="14sp"
             android:layout_marginStart="8dp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/image_rain"
             app:layout_constraintStart_toStartOf="@+id/Main_guideLine_vertical"
             app:layout_constraintTop_toBottomOf="@+id/image_thermostat"
@@ -224,8 +232,8 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/materialTextView5"
             style="@style/MainTextViewStyle"
-            android:textSize="14sp"
             android:layout_marginStart="8dp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/image_wind"
             app:layout_constraintStart_toStartOf="@+id/Main_guideLine_vertical"
             app:layout_constraintTop_toBottomOf="@+id/image_rain"
@@ -237,6 +245,7 @@
             android:includeFontPadding="false"
             android:src="@drawable/ic_sun"
 
+            app:layout_constraintBottom_toBottomOf="@+id/image_rain"
             app:layout_constraintEnd_toStartOf="@+id/Main_guideLine_vertical_2"
             app:layout_constraintStart_toStartOf="@+id/Main_guideLine_vertical"
             app:layout_constraintTop_toBottomOf="@id/Main_guideLine_horizontal_2" />
@@ -244,8 +253,8 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/materialTextView4"
             style="@style/MainTextViewStyle"
-            android:textSize="14sp"
             android:layout_marginStart="8dp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/image_sun_up"
             app:layout_constraintStart_toEndOf="@+id/image_sun_up"
             app:layout_constraintTop_toTopOf="@id/image_sun_up"
@@ -259,18 +268,52 @@
 
             app:layout_constraintEnd_toStartOf="@+id/Main_guideLine_vertical_2"
             app:layout_constraintStart_toStartOf="@+id/Main_guideLine_vertical"
-            app:layout_constraintTop_toBottomOf="@id/image_thermostat" />
+            app:layout_constraintTop_toBottomOf="@+id/image_sun_up" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/materialTextView3"
             style="@style/MainTextViewStyle"
-            android:textSize="14sp"
             android:layout_marginStart="8dp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="@+id/sun_dn"
             app:layout_constraintStart_toEndOf="@+id/sun_dn"
             app:layout_constraintTop_toTopOf="@id/sun_dn"
             tools:text="87 %" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/Main_bottom_sheets"
+        style="?attr/bottomSheetStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="8dp"
+        android:background="@drawable/bg_main_bottom_sheets"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="160dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:layout_gravity="end">
+
+        <LinearLayout
+            android:id="@+id/bottom_sheets_conteiner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="16dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/bg_mai_bottom_sheets_sweeper"
+                android:orientation="horizontal" />
+
+        </LinearLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
