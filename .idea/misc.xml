@@ -13,6 +13,8 @@
         <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/drawable/ic_thermostat.xml" value="0.1515" />
         <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/drawable/ic_wind.xml" value="0.1515" />
         <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/layout/item_main_daily.xml" value="0.253125" />
+        <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/layout/item_main_hauer.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/flatter/ThisIsMyWeather/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1515" />
       </map>
     </option>
