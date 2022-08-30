@@ -177,14 +177,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.33" />
+            app:layout_constraintGuide_percent="0.26" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/Main_guideLine_vertical_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.72" />
+            app:layout_constraintGuide_percent="0.9" />
 
         <ImageView
             android:id="@+id/image_thermostat"
