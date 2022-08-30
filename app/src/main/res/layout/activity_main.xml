@@ -49,7 +49,7 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_citi_name"
+            app:layout_constraintTop_toBottomOf="@id/main_citi_name"
             tools:text="28 августа" />
 
         <androidx.constraintlayout.widget.Guideline
@@ -92,6 +92,7 @@
                     android:textSize="15sp" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/main_temp_min"
                     style="@style/MainTextViewStyle"
                     android:gravity="center"
                     android:textSize="18sp"
@@ -120,6 +121,7 @@
                     android:textSize="15sp" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/main_temp_max"
                     style="@style/MainTextViewStyle"
                     android:gravity="center"
                     android:textSize="18sp"
@@ -136,30 +138,31 @@
             android:autoSizeTextType="uniform"
             android:includeFontPadding="false"
             android:textSize="98sp"
-            app:layout_constraintBottom_toTopOf="@+id/Layout_min_max"
-            app:layout_constraintEnd_toStartOf="@+id/main_image_of_weather"
+            app:layout_constraintBottom_toTopOf="@id/Layout_min_max"
+            app:layout_constraintEnd_toStartOf="@id/main_image_of_weather"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="25\u00B0" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/main_weather_condition_icon"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            app:layout_constraintBottom_toTopOf="@+id/main_temp"
-            app:layout_constraintStart_toEndOf="@+id/main_menu_icon"
+            app:layout_constraintBottom_toTopOf="@id/main_temp"
+            app:layout_constraintStart_toEndOf="@id/main_menu_icon"
             tools:src="@drawable/ic_sun" />
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/main_weather_condition_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="8dp"
             android:fontFamily="sans-serif"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView"
-            app:layout_constraintEnd_toStartOf="@+id/main_image_of_weather"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="@+id/imageView"
+            app:layout_constraintBottom_toBottomOf="@id/main_weather_condition_icon"
+            app:layout_constraintEnd_toStartOf="@id/main_image_of_weather"
+            app:layout_constraintStart_toEndOf="@id/main_weather_condition_icon"
+            app:layout_constraintTop_toTopOf="@id/main_weather_condition_icon"
             tools:text="clear sky" />
 
         <androidx.constraintlayout.widget.Guideline
@@ -188,17 +191,17 @@
             style="@style/AdditionalWeatherIconStyle"
             android:includeFontPadding="false"
             android:src="@drawable/ic_thermostat"
-            app:layout_constraintEnd_toStartOf="@+id/Main_guideLine_vertical"
+            app:layout_constraintEnd_toStartOf="@id/Main_guideLine_vertical"
             app:layout_constraintTop_toBottomOf="@id/Main_guideLine_horizontal_2" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/materialTextView"
+            android:id="@+id/main_pressure_text"
             style="@style/MainTextViewStyle"
             android:layout_marginStart="8dp"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/image_thermostat"
-            app:layout_constraintStart_toStartOf="@+id/Main_guideLine_vertical"
-            app:layout_constraintTop_toTopOf="@+id/Main_guideLine_horizontal_2"
+            app:layout_constraintBottom_toBottomOf="@id/image_thermostat"
+            app:layout_constraintStart_toStartOf="@id/Main_guideLine_vertical"
+            app:layout_constraintTop_toTopOf="@id/Main_guideLine_horizontal_2"
             tools:text="1.5 hPa" />
 
         <ImageView
@@ -206,18 +209,18 @@
             style="@style/AdditionalWeatherIconStyle"
             android:includeFontPadding="false"
             android:src="@drawable/ic_rain"
-            app:layout_constraintEnd_toStartOf="@+id/Main_guideLine_vertical"
+            app:layout_constraintEnd_toStartOf="@id/Main_guideLine_vertical"
 
             app:layout_constraintTop_toBottomOf="@id/image_thermostat" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/materialTextView2"
+            android:id="@+id/main_rain_text"
             style="@style/MainTextViewStyle"
             android:layout_marginStart="8dp"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/image_rain"
-            app:layout_constraintStart_toStartOf="@+id/Main_guideLine_vertical"
-            app:layout_constraintTop_toBottomOf="@+id/image_thermostat"
+            app:layout_constraintBottom_toBottomOf="@id/image_rain"
+            app:layout_constraintStart_toStartOf="@id/Main_guideLine_vertical"
+            app:layout_constraintTop_toBottomOf="@id/image_thermostat"
             tools:text="87 %" />
 
 
@@ -226,17 +229,17 @@
             style="@style/AdditionalWeatherIconStyle"
             android:includeFontPadding="false"
             android:src="@drawable/ic_wind"
-            app:layout_constraintEnd_toStartOf="@+id/Main_guideLine_vertical"
+            app:layout_constraintEnd_toStartOf="@id/Main_guideLine_vertical"
             app:layout_constraintTop_toBottomOf="@id/image_rain" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/materialTextView5"
+            android:id="@+id/main_wind_text"
             style="@style/MainTextViewStyle"
             android:layout_marginStart="8dp"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/image_wind"
-            app:layout_constraintStart_toStartOf="@+id/Main_guideLine_vertical"
-            app:layout_constraintTop_toBottomOf="@+id/image_rain"
+            app:layout_constraintBottom_toBottomOf="@id/image_wind"
+            app:layout_constraintStart_toStartOf="@id/Main_guideLine_vertical"
+            app:layout_constraintTop_toBottomOf="@id/image_rain"
             tools:text="5 m/c" />
 
         <ImageView
@@ -245,20 +248,20 @@
             android:includeFontPadding="false"
             android:src="@drawable/ic_sun"
 
-            app:layout_constraintBottom_toBottomOf="@+id/image_rain"
-            app:layout_constraintEnd_toStartOf="@+id/Main_guideLine_vertical_2"
-            app:layout_constraintStart_toStartOf="@+id/Main_guideLine_vertical"
+            app:layout_constraintBottom_toBottomOf="@id/image_rain"
+            app:layout_constraintEnd_toStartOf="@id/Main_guideLine_vertical_2"
+            app:layout_constraintStart_toStartOf="@id/Main_guideLine_vertical"
             app:layout_constraintTop_toBottomOf="@id/Main_guideLine_horizontal_2" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/materialTextView4"
+            android:id="@+id/main_time_sun_up"
             style="@style/MainTextViewStyle"
             android:layout_marginStart="8dp"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/image_sun_up"
-            app:layout_constraintStart_toEndOf="@+id/image_sun_up"
+            app:layout_constraintBottom_toBottomOf="@id/image_sun_up"
+            app:layout_constraintStart_toEndOf="@id/image_sun_up"
             app:layout_constraintTop_toTopOf="@id/image_sun_up"
-            tools:text="1.5 hPa" />
+            tools:text="11.30" />
 
         <ImageView
             android:id="@+id/sun_dn"
@@ -266,17 +269,17 @@
             android:includeFontPadding="false"
             android:src="@drawable/ic_muun"
 
-            app:layout_constraintEnd_toStartOf="@+id/Main_guideLine_vertical_2"
-            app:layout_constraintStart_toStartOf="@+id/Main_guideLine_vertical"
-            app:layout_constraintTop_toBottomOf="@+id/image_sun_up" />
+            app:layout_constraintEnd_toStartOf="@id/Main_guideLine_vertical_2"
+            app:layout_constraintStart_toStartOf="@id/Main_guideLine_vertical"
+            app:layout_constraintTop_toBottomOf="@id/image_sun_up" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/materialTextView3"
+            android:id="@+id/main_main_sun_dn"
             style="@style/MainTextViewStyle"
             android:layout_marginStart="8dp"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/sun_dn"
-            app:layout_constraintStart_toEndOf="@+id/sun_dn"
+            app:layout_constraintBottom_toBottomOf="@id/sun_dn"
+            app:layout_constraintStart_toEndOf="@id/sun_dn"
             app:layout_constraintTop_toTopOf="@id/sun_dn"
             tools:text="87 %" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -334,8 +337,6 @@
         </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
