@@ -4,31 +4,42 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import butterknife.BindView
+import butterknife.ButterKnife
 import com.example.codebuss.thisismyweather.R
+import com.example.codebuss.thisismyweather.bussiness.model.HaurlyWeathermodel
+import com.google.android.material.textview.MaterialTextView
 
-const val TAG ="RV_TEST"
 
-class MainHourlyListAdapter : RecyclerView.Adapter<MainHourlyListAdapter.HourlyViewHolder>(){
+class MainHourlyListAdapter : BaseAdapter<HaurlyWeathermodel>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HourlyViewHolder {
-        Log.d(TAG, "-----onCreateViewHolder: ")
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_main_hauer,parent,false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_main_hauer, parent, false)
         return HourlyViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: HourlyViewHolder, position: Int) {
-        Log.d(TAG, "onBindViewHolder: ")
 
-    }
+    inner class HourlyViewHolder(view: View) : BaseViewHolder(view) {
+        @BindView(R.id.item_hourly_time_tv)
+        lateinit var time: MaterialTextView
 
-    override fun getItemCount() = 30
+        @BindView(R.id.item_hourly_temp_tv)
+        lateinit var temperature: MaterialTextView
 
-    inner class HourlyViewHolder(view: View) : RecyclerView.ViewHolder(view){
+        @BindView(R.id.item_hourly_pop_tv)
+        lateinit var popRate: MaterialTextView
+
+        @BindView(R.id.item_hourly_weather_condition_icon)
+        lateinit var icon: ImageView
 
         init {
-            Log.d(TAG, "HourlyViewHolder: ")
+            ButterKnife.bind(this,itemView)
         }
 
+        override fun bindView(position: Int) {
+        }
     }
 }
