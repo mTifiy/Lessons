@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
             // динамическое изминение размеров обьекта откулючино
             setHasFixedSize(true)
         }
+        ///gyf
 
 
         main_daily_list.adapter = MainDailyListAdapter()
