@@ -214,7 +214,7 @@
             app:layout_constraintTop_toBottomOf="@id/image_thermostat" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/main_rain_text"
+            android:id="@+id/main_humidity_text"
             style="@style/MainTextViewStyle"
             android:layout_marginStart="8dp"
             android:textSize="14sp"
@@ -274,7 +274,7 @@
             app:layout_constraintTop_toBottomOf="@id/image_sun_up" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/main_main_sun_dn"
+            android:id="@+id/main_time_sun_dn"
             style="@style/MainTextViewStyle"
             android:layout_marginStart="8dp"
             android:textSize="14sp"
