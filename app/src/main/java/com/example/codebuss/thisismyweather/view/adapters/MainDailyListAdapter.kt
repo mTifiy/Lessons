@@ -21,8 +21,6 @@ class MainDailyListAdapter : BaseAdapter<DailyWeatherModel>() {
         return DailyViewHolder(view)
     }
 
-//    override fun getItemCount()  = 8
-
     inner class DailyViewHolder(view : View) : BaseViewHolder(view){
         var date: MaterialTextView = view.findViewById(R.id.item_daily_date_tv)
         var popRate: MaterialTextView = view.findViewById(R.id.item_daily_pop_tv)
