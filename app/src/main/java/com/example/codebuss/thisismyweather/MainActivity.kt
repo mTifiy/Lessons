@@ -35,7 +35,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         bindingMain = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
         checkPermission()
-        initViews()
 
         bindingMain.mainHourlyList.apply {
             adapter = MainHourlyListAdapter() // Отвечает за расположение обьекта
