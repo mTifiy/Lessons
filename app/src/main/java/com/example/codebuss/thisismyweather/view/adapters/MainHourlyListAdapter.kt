@@ -1,5 +1,6 @@
 package com.example.codebuss.thisismyweather.view.adapters
 
+import android.annotation.SuppressLint
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import butterknife.BindView
 import butterknife.ButterKnife
 import com.example.codebuss.thisismyweather.R
 import com.example.codebuss.thisismyweather.bussiness.model.HaurlyWeathermodel
+import com.example.codebuss.thisismyweather.databinding.ItemMainHauerBinding
 import com.google.android.material.textview.MaterialTextView
 
 
@@ -23,23 +25,20 @@ class MainHourlyListAdapter : BaseAdapter<HaurlyWeathermodel>() {
 
 
     inner class HourlyViewHolder(view: View) : BaseViewHolder(view) {
-        @BindView(R.id.item_hourly_time_tv)
-        lateinit var time: MaterialTextView
 
-        @BindView(R.id.item_hourly_temp_tv)
-        lateinit var temperature: MaterialTextView
+        var time: MaterialTextView = view.findViewById(R.id.item_hourly_time_tv)
 
-        @BindView(R.id.item_hourly_pop_tv)
-        lateinit var popRate: MaterialTextView
+        var temperature: MaterialTextView = view.findViewById(R.id.item_hourly_temp_tv)
 
-        @BindView(R.id.item_hourly_weather_condition_icon)
-        lateinit var icon: ImageView
+        var popRate: MaterialTextView = view.findViewById(R.id.item_hourly_pop_tv)
 
-        init {
-            ButterKnife.bind(this,itemView)
-        }
+        var icon: ImageView = view.findViewById(R.id.item_hourly_weather_condition_icon)
 
         override fun bindView(position: Int) {
+            time.text = "16:00"
+            temperature.text = "25"
+            popRate.text = "50%"
+            icon.setImageResource(R.drawable.ic_muun)
         }
     }
 }

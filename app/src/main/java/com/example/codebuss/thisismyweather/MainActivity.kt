@@ -2,32 +2,34 @@ package com.example.codebuss.thisismyweather
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.codebuss.thisismyweather.databinding.ActivityMainBinding
 import com.example.codebuss.thisismyweather.view.adapters.MainDailyListAdapter
 import com.example.codebuss.thisismyweather.view.adapters.MainHourlyListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var bindingMain: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        bindingMain = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
         initViews()
-        main_hourly_list.apply {
-            adapter = MainHourlyListAdapter()
-            // Отвечает за расположение обьекта
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+
+        bindingMain.mainHourlyList.apply {
+            adapter = MainHourlyListAdapter() // Отвечает за расположение обьекта
             // динамическое изминение размеров обьекта откулючино
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            // Установить фиксированный размер
             setHasFixedSize(true)
         }
-        ///gyf
 
-
-        main_daily_list.adapter = MainDailyListAdapter()
-        main_daily_list.layoutManager =
+        bindingMain.mainDailyList.adapter = MainDailyListAdapter()
+        bindingMain.mainDailyList.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        main_daily_list.setHasFixedSize(true)
+        bindingMain.mainDailyList.setHasFixedSize(true)
 
     }
 
