@@ -1,21 +1,15 @@
 package com.example.codebuss.thisismyweather.view.adapters
 
-import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import androidx.recyclerview.widget.RecyclerView
-import butterknife.BindView
-import butterknife.ButterKnife
 import com.example.codebuss.thisismyweather.R
-import com.example.codebuss.thisismyweather.bussiness.model.HaurlyWeathermodel
-import com.example.codebuss.thisismyweather.databinding.ItemMainHauerBinding
+import com.example.codebuss.thisismyweather.bussiness.model.HourlyWeatherModel
 import com.google.android.material.textview.MaterialTextView
 
 
-class MainHourlyListAdapter : BaseAdapter<HaurlyWeathermodel>() {
+class MainHourlyListAdapter : BaseAdapter<HourlyWeatherModel>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HourlyViewHolder {
         val view =
