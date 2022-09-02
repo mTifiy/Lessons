@@ -7,7 +7,12 @@ import android.os.Bundle
 import android.util.Log
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.codebuss.thisismyweather.bussiness.model.DailyWeatherModel
+import com.example.codebuss.thisismyweather.bussiness.model.HaurlyWeathermodel
+import com.example.codebuss.thisismyweather.bussiness.model.WeatherData
 import com.example.codebuss.thisismyweather.databinding.ActivityMainBinding
+import com.example.codebuss.thisismyweather.presenters.MainPresenter
+import com.example.codebuss.thisismyweather.view.MainView
 import com.example.codebuss.thisismyweather.view.adapters.MainDailyListAdapter
 import com.example.codebuss.thisismyweather.view.adapters.MainHourlyListAdapter
 import com.google.android.gms.location.LocationCallback
@@ -16,6 +21,8 @@ import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_main.*
+import moxy.MvpAppCompatActivity
+import moxy.ktx.moxyPresenter
 import org.w3c.dom.ls.LSException
 import java.util.jar.Manifest
 import kotlin.math.log
@@ -23,9 +30,11 @@ import kotlin.math.log
 const val GEO_LOCATION_REQUEST_COD_SUCCESS = 1
 const val TAG = "geo test"
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : MvpAppCompatActivity(), MainView {
 
     lateinit var bindingMain: ActivityMainBinding
+
+    private val mainPresenter by moxyPresenter { MainPresenter() }
 
     private val geoService by lazy { LocationServices.getFusedLocationProviderClient(this) }
     private val locationRequest by lazy { initLocationRequest() }
@@ -48,6 +57,8 @@ class MainActivity : AppCompatActivity() {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             setHasFixedSize(true)
         }
+
+        mainPresenter.enable()
 
         geoService.requestLocationUpdates(locationRequest, geoCallback, null)
     }
@@ -84,6 +95,7 @@ class MainActivity : AppCompatActivity() {
             Log.d(TAG, "onLocationResult: ${geo.locations.size}")
             for (location in geo.locations) {
                 mLocation = location
+                mainPresenter.refresh(mLocation.latitude.toString(), mLocation.longitude.toString())
             }
         }
     }
@@ -131,5 +143,45 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
     // ---------------- location code _____________
+
+
+    // ------Moxy Cod-----
+    override fun displayLocation(data: String) {
+        bindingMain.mainCitiName.text = data
+    }
+
+    override fun displayCurrentDatta(data: WeatherData) {
+        main_citi_name.text = "Кропивницкий"
+        main_day_data.text = "30 августа"
+        main_weather_condition_icon.setImageResource(R.drawable.ic_sun)
+        main_temp.text = "25\u00B0"
+        main_temp_min.text = "19"
+        main_temp_max.text = "25"
+        main_image_of_weather.setImageResource(R.mipmap.cloud3x)
+        main_pressure_text.text
+        main_humidity_text.text
+        main_wind_text.text
+        main_time_sun_up.text
+        main_time_sun_dn.text
+    }
+
+    override fun displayHourlyData(data: List<HaurlyWeathermodel>) {
+        (bindingMain.mainHourlyList.adapter as MainHourlyListAdapter).updateData(data)
+    }
+
+    override fun displayDailyData(data: List<DailyWeatherModel>) {
+        (bindingMain.mainDailyList.adapter as MainDailyListAdapter).updateData(data)
+    }
+
+    override fun displayError(error: Throwable) {
+
+    }
+
+    override fun setLoading(flag: Boolean) {
+
+    }
+    // ------Moxy Cod-----
+
 }
