@@ -1,5 +1,6 @@
 package com.example.codebuss.thisismyweather
 
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
@@ -27,7 +28,7 @@ import org.w3c.dom.ls.LSException
 import java.util.jar.Manifest
 import kotlin.math.log
 
-const val GEO_LOCATION_REQUEST_COD_SUCCESS = 1
+
 
 class MainActivity : MvpAppCompatActivity(), MainView {
 
@@ -39,11 +40,11 @@ class MainActivity : MvpAppCompatActivity(), MainView {
     private val locationRequest by lazy { initLocationRequest() }
     private lateinit var mLocation: Location
 
+    @SuppressLint("MissingPermission") // пО СКОЛЬКУ ПРОВЕРКА ДОСТУПНОСТИ ПРОХОДИТ В ДРУГОМ МЕСТЕ, МЫ ИГНОРИРУЕМ ТЕРБОВАНИЕ НА ПРОВЕРКУ
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bindingMain = ActivityMainBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
-        checkPermission()
         initializeListRecyclerView()
 
         mainPresenter.enable()
@@ -68,7 +69,6 @@ class MainActivity : MvpAppCompatActivity(), MainView {
 
 
     // ---------------- location code _____________
-
     private fun initLocationRequest(): LocationRequest {
         val request = LocationRequest.create()
         return request.apply {
@@ -86,52 +86,8 @@ class MainActivity : MvpAppCompatActivity(), MainView {
             }
         }
     }
-
-    // ----- initial activity code
-
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-    }
-
-    private fun checkPermission() {
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED &&
-            ActivityCompat.checkSelfPermission(
-                this,
-                android.Manifest.permission.ACCESS_COARSE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            MaterialAlertDialogBuilder(this)
-                .setTitle("Нам нужні его данніе")
-                .setMessage("Разрешите доступ к гео данным")
-                .setPositiveButton("ok") { _, _ ->
-                    ActivityCompat.requestPermissions(
-                        this,
-                        arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
-                        GEO_LOCATION_REQUEST_COD_SUCCESS
-                    )
-                    ActivityCompat.requestPermissions(
-                        this,
-                        arrayOf(android.Manifest.permission.ACCESS_COARSE_LOCATION),
-                        GEO_LOCATION_REQUEST_COD_SUCCESS
-                    )
-                }
-                .setNegativeButton("cansel") { dialog, _ -> dialog.dismiss() }
-                .create()
-                .show()
-        }
-
-    }
-
     // ---------------- location code _____________
+
 
     private fun initializeListRecyclerView() {
         bindingMain.mainHourlyList.apply {
